@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #353535;
+}
+
+.content {
+    max-width: 100px;
+}
+
+.map {
+    background-origin: content-box;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: ;
+}
+
+.cityes {
+    
+}
