@@ -4,18 +4,30 @@ body {
     background-color: #353535;
 }
 
-.content {
-    max-width: 100px;
-}
-
 .map {
-    background-origin: content-box;
-    background-position: center;
-    background-size: contain;
+    background-image: url('/images/KARTA.png');
     background-repeat: no-repeat;
-    height: ;
+    background-size: cover;
+    margin: 5px 100px 5px 100px;
+
 }
 
-.cityes {
-    
+#svg1 {
+    height: 100%;
+    width: 100%;
+}
+
+.point {
+    cursor: pointer;
+    fill:#b40000;
+}
+
+.point:hover {
+    fill:#d81515e0;
+
+}
+
+.point:active {
+    fill:#ff3131e0;
+
 }
