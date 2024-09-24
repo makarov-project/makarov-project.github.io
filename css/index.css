@@ -1,14 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'F1';
+    src: url('fonts/ofont.ru_Montserrat.ttf');
+}
+
 body {
     margin: 0;
     padding: 0;
     background-color: #353535;
+    font-family: 'F1';
 }
 
 .map {
     background-image: url('/images/KARTA.png');
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 5px 100px 5px 100px;
+    margin: 5px 100px 0 100px;
 
 }
 
@@ -19,15 +29,30 @@ body {
 
 .point {
     cursor: pointer;
-    fill:#b40000;
+    fill: rgba(233, 233, 233, 0.562);
 }
 
 .point:hover {
-    fill:#d81515e0;
-
+    fill: rgba(212, 212, 212, 0.562);
 }
 
 .point:active {
-    fill:#ff3131e0;
+    fill: rgba(255, 255, 255, 0.774);
+}
 
+.question {
+    position: fixed;
+    top: 90vh;
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.815);
+}
+
+#questDescription {
+    color: antiquewhite;
+    font-family: 'F1';
+    font-size: 150%;
+    padding: 0 10px 0 10px;
+    text-align: center;
+    user-select: none
 }
