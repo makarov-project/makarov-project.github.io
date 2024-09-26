@@ -10,13 +10,19 @@ const QUESTIONS = [
 	{
 		id: 'moscow',
 		description: 'moscow',
-		nonchecked: true
+		checked: false
 	},
 
 	{
 		id: 'spb',
 		description: 'spb',
-		nonchecked: true
+		checked: false
+	},
+	
+	{
+		id: 'voronez',
+		description: 'voronez',
+		checked: false
 	}
 ]
 
@@ -25,18 +31,20 @@ function getRandomQuestion(max) {
 	return QUESTIONS[rnd]
 }
 
-let rndQuest = getRandomQuestion(2)
+let rndQuest = getRandomQuestion(3)
 
 function checkAnswer(cityName) {
 	let questDescript = document.getElementById('questDescription')
 	let city = document.getElementById(cityName)
 
-	if ( rndQuest.id === cityName) {
+	if (rndQuest.id === cityName) {
 		city.style.fill = COLORS.correct
-		rndQuest.nonChecked = false
-		while (rndQuest.nonchecked) {
-			rndQuest = getRandomQuestion(2)
-		}
+		rndQuest.checked = true
+
+		do {
+			rndQuest = getRandomQuestion(3)
+		} while (rndQuest.checked === true); //или все объекты массива QUESTIONS имеют checked: true
+		
 		questDescript.textContent = rndQuest.description
 	}
 }
