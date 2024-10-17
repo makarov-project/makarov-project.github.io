@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+@font-face {
+    font-family: 'F1';
+    src: url('fonts/ofont.ru_Montserrat.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #353535;
+    font-family: 'F1';
+}
+
+#start_screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    background-color: #3535359f;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+}
+
+#start_button {
+    width: 60%;
+    min-height: 20%;
+    cursor: pointer;
+    font-size: 150%;
+    border: solid 3px;
+    border-radius: 45px;
+    padding: 10px;
+    font-family: 'F1';
+    background-color: white;
+    transition: background-color 0.7s;
+}
+#start_button:hover {
+    background-color: rgba(241, 241, 241, 0.801);
+    transition: background-color 0.5s;
+}
+#start_button:active {
+    transition: none;
+    background-color: rgba(108, 250, 52, 0.945);
+}
+
+#win {
+    display: none;
+    text-align: center;
+}
+
+#retry {
+    width: 60%;
+    min-height: 20%;
+    cursor: pointer;
+    font-size: 150%;
+    border: solid 3px;
+    border-radius: 45px;
+    padding: 10px;
+    font-family: 'F1';
+    background-color: white;
+    transition: background-color 0.7s;
+}
+#retry:hover {
+    background-color: rgba(241, 241, 241, 0.801);
+    transition: background-color 0.5s;
+}
+#retry:active {
+    transition: none;
+    background-color: rgba(108, 250, 52, 0.945);
+}
+
+#victory {
+    text-align: center;
+    line-height: 1.7;
+    font-size: 150%;
+    border: solid 3px;
+    border-radius: 45px;
+    padding: 30px;
+    background-color: white;
+}
+
+#result {
+    /* color: rgb(0, 199, 0); */
+    color: #1e00ca;
+}
+#wrong {
+    color: #f30000;
+}
+#percent {
+    color: rgb(0, 199, 0);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+#map {
+    background-image: url('/images/KARTA.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 1vh 0 0 0;
+    height: 100vh;
+    position: fixed;
+    z-index: 0;
+}
+
+#svg1 {
+    height: 100%;
+    width: 100%;
+}
+
+.point {
+    cursor: pointer;
+    fill: rgba(233, 233, 233, 0.562);
+    transition: all .4s;
+}
+
+.point:hover {
+    fill: rgba(212, 212, 212, 0.562);
+}
+
+.point:active {
+    fill: rgba(255, 255, 255, 0.774);
+}
+
+#question {
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr 2fr;
+    height: 15vh;
+    visibility: hidden;
+    position: fixed;
+    top: 80%;
+    min-width: 100%;
+    background-color: rgba(0, 0, 0, 0.884);
+}
+
+#questDescription {
+    align-self: center;
+    color: antiquewhite;
+    font-family: 'F1';
+    font-size: 2vw;
+    text-align: center;
+    user-select: none
+}
+
+#timer {
+    justify-self: flex-start;
+    align-self: center;
+    color: rgb(170, 255, 152);
+    font-family: 'F1';
+    font-size: 2vw;
+    user-select: none
+}

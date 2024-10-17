@@ -1,0 +1,91 @@
+
+<!-- ВНИМАНИЕ!!!
+
+ЕСЛИ ВАМ ДОРОГИ ВАШИ ГЛАЗА, ПОЖАЛУЙСТА, НЕ ЧИТАЙТЕ МОЙ КОД!!!
+И постарайтесь не дышать на js, он держться на силе воли разработчика!! -->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Города-миллионники</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" href="https://media.istockphoto.com/id/175512393/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D1%81%D0%BE%D0%B1%D0%BE%D1%80.jpg?s=612x612&w=0&k=20&c=-iNPqM6hkeAXqvBVaGcwf_Ud-j64Rj0g7OEWL6kfy00=">
+</head>
+
+<body>
+
+    <div id="start_screen">
+        <button id="start_button" onclick="startGame()">Начать игру</button>
+        <div id="win">
+            <h2 id="victory"><span id="result1"></span> Твой результат... <span id="result"></span>!
+                <br>Количество ошибок: <span id="wrong"></span>
+                <br>Общая правильность ответов: <span id="percent"></span>
+            </h2>
+            <br>
+            <button id="retry" onclick="retry()">Играть еще раз</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="map">
+            <svg class="cityes" version="1.1" id="svg1" viewBox="0 0 1920 1080"
+                sodipodi:docname="GORODA.svg" xml:space="preserve" inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
+                xmlns:svg="http://www.w3.org/2000/svg">
+                <defs id="defs1" />
+                <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25"
+                    inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0"
+                    inkscape:deskcolor="#d1d1d1" showgrid="false" inkscape:zoom="0.70710678" inkscape:cx="679.52962"
+                    inkscape:cy="647.70981" inkscape:window-width="1920" inkscape:window-height="1016"
+                    inkscape:window-x="0" inkscape:window-y="27" inkscape:window-maximized="1"
+                    inkscape:current-layer="svg1" />
+                <g inkscape:groupmode="layer" id="layer1" inkscape:label="cityes">
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="novosibirsk" onclick="checkAnswer('novosibirsk')" cx="842.72559"
+                        cy="835.73132" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="display:inline;fill-opacity:1;stroke-width:1.13272" id="omsk" onclick="checkAnswer('omsk')"
+                        cx="707.71545" cy="806.88074" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="chelabinsk" onclick="checkAnswer('chelabinsk')" cx="563.98016"
+                        cy="731.93573" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="display:inline;fill-opacity:1;stroke-width:1.13272" id="ekaterinburg" onclick="checkAnswer('ekaterinburg')"
+                        cx="576.39075" cy="689.47595" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="ufa" onclick="checkAnswer('ufa')" cx="502.62357"
+                        cy="707.8833" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="display:inline;fill-opacity:1;stroke-width:1.13272" id="kazan" onclick="checkAnswer('kazan')"
+                        cx="437.15057" cy="632.82611" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="display:inline;fill-opacity:1;stroke-width:1.13272" id="samara" onclick="checkAnswer('samara')"
+                        cx="407.03064" cy="686.40381" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="display:inline;fill-opacity:1;stroke-width:1.13272" id="volgograd" onclick="checkAnswer('volgograd')"
+                        cx="267.98691" cy="705.32361" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="voronez" onclick="checkAnswer('voronez')" cx="252.16696"
+                        cy="613.58954" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="moscow" onclick="checkAnswer('moscow')" cx="313.26642"
+                        cy="521.34369" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="spb" onclick="checkAnswer('spb')" cx="335.31152"
+                        cy="383.86804" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="rostovND" onclick="checkAnswer('rostovND')" cx="180.8098"
+                        cy="681.86877" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="nizni-novgorod" onclick="checkAnswer('nizni-novgorod')" cx="386.9996"
+                        cy="585.74921" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="perm" onclick="checkAnswer('perm')" cx="541.57764"
+                        cy="635.34613" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                    <ellipse class="point" style="fill-opacity:1;stroke-width:1.13272" id="krasnoiarsk" onclick="checkAnswer('krasnoiarsk')" cx="979.41486"
+                        cy="828.63495" rx="13.279696" ry="12.972282" stroke="#000000"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <div id="question">
+            <br>
+            <span id="timer">00:00.00</span>
+            <span id="questDescription"></span>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
