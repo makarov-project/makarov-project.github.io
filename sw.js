@@ -1,0 +1,2 @@
+'use strict';
+importScripts('sw-toolbox.js'); toolbox.precache(["millionniki.html","css/index.css","js/*","images/*","css/fonts/*"]); toolbox.router.get('/images/*', toolbox.cacheFirst); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5});
