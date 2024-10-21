@@ -163,13 +163,3 @@ body {
     display: none;
 }
 
-@media (orientation = portrait) {
-    #all {
-        display: none;
-    }
-    #portraitOr {
-        display: block;
-        text-align: center;
-        color: antiquewhite;
-    }
-}

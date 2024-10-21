@@ -1,5 +1,20 @@
 // НЕ ЧИТАЙТЕ МОЙ ЖАБА-СКРИПТ ПОЖАЛУЙСТА
-// вы вряд ли вынесите из него что-то кроме инфаркта
+// вы вряд ли узнаете что-то новое
+
+const detectDeviceType = () =>
+	/Mobile|Android|iPhone|iPad/i.test(navigator.userAgent)
+		? 'Mobile'
+		: 'Desktop'
+
+if (detectDeviceType() === 'Mobile') {
+	let all = document.getElementById('all')
+	let portraitOr = document.getElementById('portraitOr')
+
+	all.style.display = 'none'
+	portraitOr.style.display = 'block'
+	portraitOr.style.textAlign = 'center'
+	portraitOr.style.color = 'antiquewhite'
+}
 
 let quest = 1
 let wrongs = 0
