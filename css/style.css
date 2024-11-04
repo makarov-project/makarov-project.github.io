@@ -29,15 +29,24 @@ body {
 }
 
 .header__top-left {
+	transition: 
+	background 0.5s,
+	border-radius 0.5s;
+	border-radius: 30px;
 	padding: 50px;
 	display: grid;
 	grid-template-columns: 2fr 1fr 4fr;
 }
 
 .header__top-right {
+	transition: 
+	background 0.5s,
+	border-radius 0.5s;
+	border-radius: 30px;
 	padding: 50px;
 	display: grid;
 	grid-template-columns: 4fr 1fr 2fr;
+
 }
 
 .cont-box {
@@ -55,6 +64,28 @@ body {
 	height: 100%;
 	width: 100%;
 	cursor: pointer;
+	color: inherit;
+	text-decoration: none;
+}
+
+.header__top-right:hover {
+	transition: 
+	background 0.5s,
+	border-radius 0.5s;
+	background: #c9c9c9;
+	border-radius: 60px;
+}
+.header__top-left:hover {
+	transition: 
+	background 0.5s,
+	border-radius 0.5s;
+	background: #c9c9c9;
+	border-radius: 60px;
+}
+
+.header__top-right:hover:active {
+	cursor: grab;
+	background: #eeeeee;
 }
 
 .logo-box {
