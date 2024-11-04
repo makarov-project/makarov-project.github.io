@@ -1,5 +1,6 @@
 // НЕ ЧИТАЙТЕ МОЙ ЖАБА-СКРИПТ ПОЖАЛУЙСТА
-// вы вряд ли узнаете что-то новое
+// вы вряд ли узнаете что-то новое
+
 
 let quest = 1
 let wrongs = 0
@@ -51,6 +52,8 @@ const startBtn = document.getElementById('start_button')
 })
 
 function startGame() {
+	let help = document.getElementById('help')
+	let timerViewButton = document.getElementById('timerViewButton')
 	let screen = document.getElementById('start_screen')
 	let que = document.getElementById('question')
 	AUDIO.bg.play()
@@ -58,6 +61,8 @@ function startGame() {
 	AUDIO.bg.autoplay = true
 	screen.style.visibility = 'hidden'
 	que.style.visibility = 'visible'
+	timerViewButton.style.display = 'block'
+	help.style.display = 'block'
 }
 
 const COLORS = {
@@ -291,4 +296,49 @@ function checkAnswer(cityName) {
 
 function retry() {
 	document.location.reload()
+}
+
+const contextMenu = document.getElementById('context-menu')
+
+window.addEventListener('contextmenu', function(e) {
+	e.preventDefault()
+	const menuWidth = contextMenu.offsetWidth
+	const menuHeight = contextMenu.offsetHeight
+	const posX = e.pageX
+	const posY = e.pageY
+
+	const rightSpace = window.innerWidth - posX
+	const bottomSpace = window.innerHeight - posY
+
+	contextMenu.style.left = (rightSpace < menuWidth) ? posX - menuWidth + 'px' : posX + 'px'
+	contextMenu.style.top = (bottomSpace < menuHeight) ? posY - menuHeight + 'px' : posY + 'px'
+	
+	contextMenu.style.display = 'block'
+})
+
+window.addEventListener('click', function() {
+	contextMenu.style.display = 'none'
+})
+
+function timerView() {
+	let timer = document.getElementById('timer')
+	let timerViewButton = document.getElementById('timerViewButton')
+
+	if (timer.style.visibility === "hidden") {
+		timer.style.visibility = "visible"
+		timerViewButton.textContent = "Скрыть таймер"
+	}
+	else {
+		timer.style.visibility = "hidden"
+		timerViewButton.textContent = "Показать таймер"
+	}
+}
+
+function help() {
+	let arg = document.getElementById(rndQuest.id)
+	uncorrect = 3
+	++wrongs
+	++wrongs
+	++wrongs
+	arg.style.fill = COLORS.help
 }

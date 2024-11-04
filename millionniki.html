@@ -34,6 +34,13 @@
 
 <body>
 
+    <div id="context-menu">
+		<button id="help" onclick="help()" class="context-menu__button">Подсказка</button>
+		<button id="timerViewButton" onclick="timerView()" class="context-menu__button">Скрыть таймер</button>
+        <button onclick="document.location.reload()" class="context-menu__button">Играть заново</button>
+		<a href="index.html" class="context-menu__button">На главную</a>
+	</div>
+
     <div id="all">
         <div id="start_screen">
             <button id="start_button" onclick="startGame()">Начать игру</button>
