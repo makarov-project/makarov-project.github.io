@@ -147,7 +147,7 @@ body {
     font-family: 'F1';
     font-size: 2vw;
     text-align: center;
-    user-select: none
+    user-select: none;
 }
 
 #timer {
@@ -156,7 +156,7 @@ body {
     color: rgb(170, 255, 152);
     font-family: 'F1';
     font-size: 2vw;
-    user-select: none
+    user-select: none;
 }
 
 #portraitOr {
