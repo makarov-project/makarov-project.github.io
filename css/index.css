@@ -133,12 +133,12 @@ body {
 #question {
     display: grid;
     grid-template-columns: 1fr 1fr 4fr 2fr;
-    height: 15vh;
+    height: 12vh;
     visibility: hidden;
     position: fixed;
-    top: 80%;
+    top: 85%;
     min-width: 100%;
-    background-color: rgba(0, 0, 0, 0.884);
+    background-color: rgba(0, 0, 0, 0.795);
 }
 
 #questDescription {
@@ -173,5 +173,6 @@ body {
         display: block;
         text-align: center;
         color: antiquewhite;
-    }
+    }
+
 }
