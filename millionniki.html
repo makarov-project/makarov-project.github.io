@@ -1,7 +1,6 @@
 <!-- ВНИМАНИЕ!!! 
 
-ЕСЛИ ВАМ ДОРОГИ ВАШИ ГЛАЗА, ПОЖАЛУЙСТА, НЕ ЧИТАЙТЕ МОЙ КОД!!!
-И постарайтесь не дышать на js, он держться на силе воли разработчика!! -->
+ЕСЛИ ВАМ ДОРОГИ ВАШИ ГЛАЗА, ПОЖАЛУЙСТА, НЕ ЧИТАЙТЕ МОЙ КОД!!! -->
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -29,7 +28,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Города-миллионники</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/millionniki.css">
 </head>
 
 <body>
@@ -38,7 +37,7 @@
 		<button id="help" onclick="help()" class="context-menu__button">Подсказка</button>
 		<button id="timerViewButton" onclick="timerView()" class="context-menu__button">Скрыть таймер</button>
         <button onclick="document.location.reload()" class="context-menu__button">Играть заново</button>
-		<a href="index.html" class="context-menu__button">На главную</a>
+		<a href="index.html" class="context-menu__button" id="mainpage">На главную</a>
 	</div>
 
     <div id="all">
@@ -47,6 +46,7 @@
             <div id="win">
                 <h2 id="victory"><span id="result1"></span> Твой результат... <span id="result"></span>!
                     <br>Количество ошибок: <span id="wrong"></span>
+                    <br><span id="hints">Взято подсказок: <span id="helps"></span></span>
                     <br>Общая правильность ответов: <span id="percent"></span>
                 </h2>
                 <br>
@@ -129,16 +129,14 @@
         <br>далее "Добавить на главный экран" и "Установить"
     </h2>
 
-    <script src="js/index.js"></script>
+    <script src="js/millionniki.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
          window.addEventListener('load', function() {  
            navigator.serviceWorker.register('/sw.js').then(
              function(registration) {
-               // Registration was successful
                console.log('ServiceWorker registration successful with scope: ', registration.scope); },
              function(err) {
-               // registration failed :(
                console.log('ServiceWorker registration failed: ', err);
              });
          });
