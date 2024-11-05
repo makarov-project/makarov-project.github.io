@@ -216,7 +216,7 @@ function checkAnswer(cityName) {
 			city.style.fill = COLORS.wrong
 		}
 
-		if (answers_count === 1) {
+		if (answers_count === 15) {
 			let que = document.getElementById('question')
 			que.style.visibility = 'hidden'
 			AUDIO.victory.play()
