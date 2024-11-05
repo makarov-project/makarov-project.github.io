@@ -216,7 +216,7 @@ function checkAnswer(cityName) {
 			city.style.fill = COLORS.wrong
 		}
 
-		if (answers_count === 15) {
+		if (answers_count === 1) {
 			let que = document.getElementById('question')
 			que.style.visibility = 'hidden'
 			AUDIO.victory.play()
@@ -267,8 +267,8 @@ function checkAnswer(cityName) {
 			wrong.textContent = wrongs
 			percent.textContent = rightPercent + '%'
 			helps.textContent = hint
-			if (hint > 0) {
-				hints.style.display = 'inline-block'
+			if (hint === 0) {
+				hints.style.display = 'none'
 			}
 			setTimeout(() => {
 				AUDIO.bg.play()

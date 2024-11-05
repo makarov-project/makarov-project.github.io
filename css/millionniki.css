@@ -211,10 +211,6 @@ a.context-menu__button {
     border-top: solid 0.2vh;
 }
 
-#hints {
-    display: none;
-}
-
 
 @media (orientation = portrait) {
     #all {
