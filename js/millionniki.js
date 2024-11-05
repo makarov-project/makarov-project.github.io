@@ -1,11 +1,13 @@
 // не судите строго
 
 
+
 let quest = 1
 let wrongs = 0
 let correctAnswers = 0
 let uncorrect = 0
 let hint = 0
+let onehint = 0
 
 const musicSrc = {
 	bg: '/js/sounds/fon.mp3', 
@@ -190,6 +192,7 @@ function checkAnswer(cityName) {
 		AUDIO.click.play()
 		++answers_count
 		city.checked = true
+		onehint = 0
 
 		if (uncorrect === 0) {
 			++correctAnswers
@@ -341,8 +344,11 @@ function timerView() {
 }
 
 function help() {
-	let arg = document.getElementById(rndQuest.id)
-	uncorrect = 3
-	++hint
-	arg.style.fill = COLORS.help
+	if (onehint === 0) {
+		let arg = document.getElementById(rndQuest.id)
+		uncorrect = 3
+		++hint
+		++onehint
+		arg.style.fill = COLORS.help
+	}
 }
