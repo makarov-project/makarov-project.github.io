@@ -44,7 +44,7 @@ body {
     background-color: rgba(241, 241, 241, 0.801);
     transition: background-color 0.5s;
 }
-#start_button:active {
+#start_button:hover:active {
     transition: none;
     background-color: rgba(108, 250, 52, 0.945);
 }
