@@ -13,7 +13,8 @@ const musicSrc = {
 	bg: '/js/sounds/fon.mp3', 
 	victory: '/js/sounds/victory.mp3',
 	click: '/js/sounds/clickSound.mp3',
-	wrong: '/js/sounds/wrong.mp3'
+	wrong: '/js/sounds/wrong.mp3',
+	hint: '/js/sounds/hint.mp3',
 }
 
 function createSound(path) {
@@ -26,7 +27,28 @@ const AUDIO = {
 	bg: createSound(musicSrc.bg),
 	victory: createSound(musicSrc.victory),
 	click: createSound(musicSrc.click),
-	wrong: createSound(musicSrc.wrong)
+	wrong: createSound(musicSrc.wrong),
+	hint: createSound(musicSrc.hint),
+}
+AUDIO.hint.volume = 0.3
+
+function muteSound() {
+	for (const key in AUDIO) {
+        if (AUDIO.hasOwnProperty(key)) {
+            const audio = AUDIO[key]
+            audio.volume = 0
+        }
+    }
+}
+
+function returnSound() {
+	for (const key in AUDIO) {
+        if (AUDIO.hasOwnProperty(key)) {
+            const audio = AUDIO[key]
+            audio.volume = 1
+        }
+    }
+	AUDIO.hint.volume = 0.3
 }
 
 let seconds = 0
@@ -189,6 +211,7 @@ function checkAnswer(cityName) {
 	let city = document.getElementById(cityName)
 
 	if (rndQuest.id === cityName) {
+		AUDIO.click.currentTime = 0
 		AUDIO.click.play()
 		++answers_count
 		city.checked = true
@@ -219,6 +242,9 @@ function checkAnswer(cityName) {
 		if (answers_count === 15) {
 			let que = document.getElementById('question')
 			que.style.visibility = 'hidden'
+			document.getElementById('help').style.display = 'none'
+			document.getElementById('timerViewButton').style.display = 'none'
+			document.getElementById('timer').style.display = 'none'
 			AUDIO.victory.play()
 			AUDIO.bg.pause()
 
@@ -245,7 +271,7 @@ function checkAnswer(cityName) {
 			}
 
 			else if (rightPercent <= 60) {
-				result1.textContent = 'Ну так... Фифти фифти...'
+				result1.textContent = 'Средненько...'
 			}
 
 			else if (rightPercent <= 80 && minutes <= 2) {
@@ -257,7 +283,7 @@ function checkAnswer(cityName) {
 			}
 
 			else if (rightPercent <= 100 && minutes <= 1) {
-				result1.textContent = 'Невероятно!😎'
+				result1.textContent = 'Просто невероятно!😎'
 			}
 
 			else {
@@ -291,6 +317,7 @@ function checkAnswer(cityName) {
 
 		city.style.fill = COLORS.wrong
 		++uncorrect
+		AUDIO.wrong.currentTime = 0
 		AUDIO.wrong.play()
 		
 		setTimeout(() => {
@@ -349,6 +376,29 @@ function help() {
 		uncorrect = 3
 		++hint
 		++onehint
+		AUDIO.hint.currentTime = 0
+		AUDIO.hint.play()
 		arg.style.fill = COLORS.help
 	}
 }
+
+let isMusicMuted = false
+
+function changeMusic() {
+	let mus_img = document.getElementById('mus_but')
+
+	if (isMusicMuted) {
+		mus_img.src = 'images/yes-aud.png'
+		returnSound()
+		isMusicMuted = false
+	}
+
+	else if (!isMusicMuted) {
+		mus_img.src = 'images/no-aud.png'
+		muteSound()
+		isMusicMuted = true
+	}
+}
+
+// document.getElementById('mus_but').addEventListener('click', changeMusic)
+// document.getElementById('hint_but').addEventListener('click', help)
