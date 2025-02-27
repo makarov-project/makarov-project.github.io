@@ -139,12 +139,21 @@
          window.addEventListener('load', function() {  
            navigator.serviceWorker.register('/sw.js').then(
              function(registration) {
-               console.log('ServiceWorker registration successful with scope: ', registration.scope); },
+               console.log('ServiceWorker registration successful with scope: ', registration.scope) },
              function(err) {
-               console.log('ServiceWorker registration failed: ', err);
-             });
-         });
+               console.log('ServiceWorker registration failed: ', err)
+             })
+         })
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.orientation !== 'portrait') {
+                document.getElementById('all').style.display = 'block'
+                console.log('загрузка завершена . . .')
+            }
+        })
     </script>
 </body>
 

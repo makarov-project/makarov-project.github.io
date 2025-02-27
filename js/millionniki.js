@@ -71,7 +71,7 @@ function updateTime() {
 }
 
 const startBtn = document.getElementById('start_button')
-	startBtn.addEventListener('click', () => {
+startBtn.addEventListener('click', () => {
 	interval = setInterval(updateTime, 10)
 })
 
